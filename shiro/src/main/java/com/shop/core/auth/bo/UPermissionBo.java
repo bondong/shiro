@@ -1,4 +1,4 @@
-package com.shop.core.bo;
+package com.shop.core.auth.bo;
 
 import java.io.Serializable;
 

@@ -3,7 +3,7 @@ package com.shop.core.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.shop.core.bo.URoleBo;
+import com.shop.core.auth.bo.URoleBo;
 import com.shop.core.model.UUser;
 
 public interface UUserMapper {

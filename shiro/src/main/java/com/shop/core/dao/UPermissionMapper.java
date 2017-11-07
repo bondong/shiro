@@ -3,7 +3,7 @@ package com.shop.core.dao;
 import java.util.List;
 import java.util.Set;
 
-import com.shop.core.bo.UPermissionBo;
+import com.shop.core.auth.bo.UPermissionBo;
 import com.shop.core.model.UPermission;
 
 public interface UPermissionMapper {
