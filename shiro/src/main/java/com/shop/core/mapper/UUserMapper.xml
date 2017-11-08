@@ -43,7 +43,7 @@
   
   
   <!-- 用户权限分配的分页查询 -->
-  <select id="findUserAndRole" resultType="com.sojson.permission.bo.UserRoleAllocationBo">
+  <select id="findUserAndRole" resultType="com.shop.core.auth.bo.UserRoleAllocationBo">
   	select u.id,u.nickname,u.email,u.create_time,u.last_login_time,u.status ,group_concat(ur.name) roleNames,group_concat(ur.id)roleIds from
 	 u_user u
 	left join u_user_role uur on uur.uid = u.id
@@ -58,7 +58,7 @@
       </where>
 	group by u.id 
   </select>
-  <select id="selectRoleByUserId" resultType="com.sojson.permission.bo.URoleBo">
+  <select id="selectRoleByUserId" resultType="com.shop.core.auth.bo.URoleBo">
   		
 		select ur.id,ur.name,ur.type,ifnull(uu.id,0)marker,uu.id userId from u_role ur
 		left join u_user_role uur on uur.rid = ur.id

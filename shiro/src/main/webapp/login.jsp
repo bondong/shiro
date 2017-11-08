@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="basePath" value="${pageContext.request.contextPath}"></c:set>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,15 +15,15 @@
             <label><input type="checkbox" checked="checked"  id="rememberMe"style="width: 10px; height: 10px;">记住我</label>
             </div>
             <button type="button" id="login">登录</button>
-			<div class="error"><span>+</span></div>
         </form>
 
- 		<script  src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
-        <script  src="${basePath}/js/common/MD5.js"></script>
-        <script  src="${basePath}/js/common/supersized.3.2.7.min.js"></script>
-        <script  src="${basePath}/js/common/supersized-init.js"></script>
-		<script  src="${basePath}/js/common/layer/layer.js"></script>
+ 		<script  src="js/common/jquery/jquery1.8.3.min.js"></script>
+        <script  src="js/common/MD5.js"></script>
+       <!--  <script  src="js/common/supersized.3.2.7.min.js"></script>
+        <script  src="js/common/supersized-init.js"></script>
+		<script  src="js/common/layer/layer.js"></script> -->
         <script >
+        	console.log("${basePath}");
 			jQuery(document).ready(function() {
 				//登录操作
 			    $('#login').click(function(){
@@ -32,33 +32,38 @@
 			        var password = $('.password').val();
 			        var pswd = MD5(username +"#" + password),
 			        	data = {pswd:pswd,email:username,rememberMe:$("#rememberMe").is(':checked')};
-			        var load = layer.load();
-			        
+			        //var load = layer.load();
+			        alert(pswd);
+			        console.log(data);
 			        $.ajax({
-			        	url:"${basePath}/u/submitLogin",
+			        	url:"u/submitLogin.do",
 			        	data:data,
 			        	type:"post",
 			        	dataType:"json",
 			        	beforeSend:function(){
-			        		layer.msg('开始登录，请注意后台控制台。');
+			        		alert("before send");
+			        		//layer.msg('开始登录，请注意后台控制台。');
 			        	},
 			        	success:function(result){
-				        	layer.close(load);
+				        	//layer.close(load);
 				    		if(result && result.status != 200){
 				    			
-				    			layer.msg(result.message,function(){});
+				    			//layer.msg(result.message,function(){});
 				    			$('.password').val('');
+				    			alert(1);
 				    			return;
 				    		}else{
-				    			layer.msg('登录成功！');
+				    			//layer.msg('登录成功！');
+				    			alert(2);
 				    			setTimeout(function(){
 					    			window.location.href= result.back_url || "${basePath}/";
 				    			},1000)
 				    		}
 			        	},
 			        	error:function(e){
+			        		alert(3);
 			        		console.log(e,e.message);
-			        		layer.msg('请看后台Java控制台，是否报错，确定已经配置数据库和Redis',new Function());
+			        		//layer.msg('请看后台Java控制台，是否报错，确定已经配置数据库和Redis',new Function());
 			        	}
 			        });
 			    });
