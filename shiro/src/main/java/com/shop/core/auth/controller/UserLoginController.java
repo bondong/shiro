@@ -26,23 +26,7 @@ import com.shop.core.shiro.token.manager.TokenManager;
 import net.sf.json.JSONObject;
 
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
  * 用户登录相关，不需要做登录限制
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
  * 
  */
 @Controller
@@ -119,15 +103,14 @@ public class UserLoginController extends BaseController {
 	@ResponseBody
 	public Map<String,Object> submitLogin(UUser entity,Boolean rememberMe,HttpServletRequest request){
 		
+		String temp = "+++++++++++++++++++++++++++++++++++++++it's a test";
+		System.out.println(temp);
 		try {
 			entity = TokenManager.login(entity,rememberMe);
 			resultMap.put("status", 200);
 			resultMap.put("message", "登录成功");
-			
-			
 			/**
-			 * shiro 获取登录之前的地址
-			 * 之前0.1版本这个没判断空。
+			 * shiro 获取登录之前的地址。
 			 */
 			SavedRequest savedRequest = WebUtils.getSavedRequest(request);
 			String url = null ;
@@ -138,7 +121,7 @@ public class UserLoginController extends BaseController {
 			 * 我们平常用的获取上一个请求的方式，在Session不一致的情况下是获取不到的
 			 * String url = (String) request.getAttribute(WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE);
 			 */
-			LoggerUtils.fmtDebug(getClass(), "获取登录之前的URL:[%s]",url);
+			LoggerUtils.fmtDebug(getClass(), "获取登录之前的URL,获取登录之前的URL:[%s]",url);
 			//如果登录之前没有地址，那么就跳转到首页。
 			if(StringUtils.isBlank(url)){
 				url = request.getContextPath() + "/index.jsp";
