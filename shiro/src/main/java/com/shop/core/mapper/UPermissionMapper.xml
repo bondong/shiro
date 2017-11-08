@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sojson.common.dao.UPermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.sojson.common.model.UPermission" >
+<mapper namespace="com.shop.core.dao.UPermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.shop.core.model.UPermission" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -84,11 +84,11 @@
     delete from u_permission
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.UPermission" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.shop.core.model.UPermission" >
     insert into u_permission (id, url, name)
     values (#{id,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.UPermission" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.shop.core.model.UPermission" >
     insert into u_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -113,7 +113,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sojson.common.model.UPermission" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.shop.core.model.UPermission" >
     update u_permission
     <set >
       <if test="url != null" >
@@ -125,7 +125,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sojson.common.model.UPermission" >
+  <update id="updateByPrimaryKey" parameterType="com.shop.core.model.UPermission" >
     update u_permission
     set url = #{url,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR}

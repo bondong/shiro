@@ -7,7 +7,7 @@
 	<settings>		
 		<setting name="defaultExecutorType" value="REUSE" />
 	</settings>
-    <!-- 设置别名 -->
+    <!-- 自动扫描包内的bo类，简化*Mapper.xml写法 -->
     <typeAliases>
         <package name="com.shop.core.domain" />
     </typeAliases>
