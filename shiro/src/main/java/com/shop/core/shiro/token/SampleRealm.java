@@ -23,9 +23,7 @@ import com.shop.core.auth.service.UUserService;
 import com.shop.core.model.UUser;
 import com.shop.core.shiro.token.manager.TokenManager;
 
-
 /**
- * 
  * shiro 认证 + 授权   重写
  * 
  */
@@ -61,6 +59,7 @@ public class SampleRealm extends AuthorizingRealm {
 			user.setLastLoginTime(new Date());
 			userService.updateByPrimaryKeySelective(user);
 		}
+		//没有返回登录用户名对应的SimpleAuthenticationInfo对象时,就会在LoginController中抛出UnknownAccountException异常 
 		return new SimpleAuthenticationInfo(user,user.getPswd(), getName());
     }
 
@@ -78,6 +77,7 @@ public class SampleRealm extends AuthorizingRealm {
 		//根据用户ID查询权限（permission），放入到Authorization里。
 		Set<String> permissions = permissionService.findPermissionByUserId(userId);
 		info.setStringPermissions(permissions);
+		//若返回null的话,就会导致任何用户访问时会自动跳转到unauthorizedUrl指定的地址  
         return info;  
     }  
     /**
