@@ -57,5 +57,23 @@ public class CustomShiroSessionDAO extends AbstractSessionDAO{
   
     @Override  
     protected Session doReadSession(Serializable sessionId) {  
+    	
         return getShiroSessionRepository().getSession(sessionId);  
-    } }
+    } 
+    
+    @Override
+    /*
+     * 考虑重写父类方法，这里抛出的异常没有实际用途？
+     * */
+    public Session readSession(Serializable sessionId)
+			throws UnknownSessionException 
+    {
+		Session s = this.doReadSession(sessionId);
+		if (s == null) {
+			throw new UnknownSessionException("There is no session with id ["
+					+ sessionId + "],maybe the session is timeout! could ignore this");
+		} else {
+			return s;
+		}
+	}
+}

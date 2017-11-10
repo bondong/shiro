@@ -58,6 +58,10 @@ public class JedisShiroCache<K, V> implements Cache<K, V> {
         } catch (Exception e) {
             LoggerUtils.error(SELF, "get value by cache throw exception",e);
         }
+        System.out.println("get cache key>>>>>>>>>>>>>>>>>>" + key);
+        System.out.println("get cache byteKey>>>>>>>>>>>>>>" + byteKey);
+        System.out.println("get cache byteValue>>>>>>>>>>>>" + byteValue);
+        System.out.println("get cache value>>>>>>>>>>>>>>>>" + SerializeUtil.deserialize(byteValue));
         return (V) SerializeUtil.deserialize(byteValue);
     }
 

@@ -11,7 +11,7 @@ import com.shop.common.utils.SpringContextUtil;
 import redis.clients.jedis.Jedis;
 /**
  * 
- * 简单封装的Cache
+ * 简单封装的Cache,目前仅在kickoutFilter中调用过
  */
 @SuppressWarnings("unchecked")
 public class VCache {

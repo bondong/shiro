@@ -55,7 +55,7 @@
 				    			//layer.msg('登录成功！');
 				    			alert(2);
 				    			setTimeout(function(){
-					    			window.location.href= result.back_url || "${basePath}/";
+					    			window.location.href= result.back_url || "${basePath}/home.jsp";
 				    			},1000)
 				    		}
 			        	},
