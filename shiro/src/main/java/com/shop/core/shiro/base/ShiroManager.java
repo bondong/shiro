@@ -1,4 +1,4 @@
-package com.shop.core.shiro.service;
+package com.shop.core.shiro.base;
 
 public interface ShiroManager {
 

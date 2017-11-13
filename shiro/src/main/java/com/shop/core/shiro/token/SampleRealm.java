@@ -21,7 +21,6 @@ import com.shop.core.auth.service.PermissionService;
 import com.shop.core.auth.service.RoleService;
 import com.shop.core.auth.service.UUserService;
 import com.shop.core.model.UUser;
-import com.shop.core.shiro.token.manager.TokenManager;
 
 /**
  * shiro 认证 + 授权   重写
@@ -78,6 +77,8 @@ public class SampleRealm extends AuthorizingRealm {
 		Set<String> permissions = permissionService.findPermissionByUserId(userId);
 		info.setStringPermissions(permissions);
 		//若返回null的话,就会导致任何用户访问时会自动跳转到unauthorizedUrl指定的地址  
+		System.out.println(info.getRoles().contains("888888,100002"));
+		System.out.println(info.getRoles().contains("888888"));
         return info;  
     }  
     /**

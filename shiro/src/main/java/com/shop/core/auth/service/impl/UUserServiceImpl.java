@@ -20,7 +20,7 @@ import com.shop.core.model.UUserRole;
 import com.shop.core.mybatis.BaseMybatisDao;
 import com.shop.core.mybatis.page.Pagination;
 import com.shop.core.shiro.session.CustomSessionManager;
-import com.shop.core.shiro.token.manager.TokenManager;
+import com.shop.core.shiro.token.TokenManager;
 
 @Service
 public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUserService {

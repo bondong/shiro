@@ -1,4 +1,4 @@
-package com.shop.core.shiro.token.manager;
+package com.shop.core.shiro.token;
 
 import java.util.List;
 
@@ -9,8 +9,6 @@ import org.apache.shiro.subject.SimplePrincipalCollection;
 import com.shop.common.utils.SpringContextUtil;
 import com.shop.core.model.UUser;
 import com.shop.core.shiro.session.CustomSessionManager;
-import com.shop.core.shiro.token.SampleRealm;
-import com.shop.core.shiro.token.ShiroToken;
 
 /**
  * Shiro管理下的Token工具类
@@ -87,6 +85,8 @@ public class TokenManager {
 	 */
 	public static UUser login(UUser user,Boolean rememberMe){
 		ShiroToken token = new ShiroToken(user.getEmail(), user.getPswd());
+		//System.out.println("登陆密码md5处理后值>>>>>>>>>>>>>>>>>>>");
+		//System.out.println(user.getPswd());
 		token.setRememberMe(rememberMe);
 		SecurityUtils.getSubject().login(token);
 		return getToken();

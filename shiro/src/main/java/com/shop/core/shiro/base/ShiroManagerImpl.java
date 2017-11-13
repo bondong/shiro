@@ -1,4 +1,4 @@
-package com.shop.core.shiro.service.impl;
+package com.shop.core.shiro.base;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,7 +15,6 @@ import org.springframework.core.io.ClassPathResource;
 
 import com.shop.common.utils.LoggerUtils;
 import com.shop.core.config.INI4j;
-import com.shop.core.shiro.service.ShiroManager;
 /**
  * 
  * 动态加载权限 Service

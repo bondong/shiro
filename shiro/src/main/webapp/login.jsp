@@ -17,8 +17,8 @@
             <button type="button" id="login">登录</button>
         </form>
 
- 		<script  src="js/common/jquery/jquery1.8.3.min.js"></script>
-        <script  src="js/common/MD5.js"></script>
+ 		<script  src="js/common/base/jquery1.8.3.min.js"></script>
+        <script  src="js/common/base/MD5.js"></script>
        <!--  <script  src="js/common/supersized.3.2.7.min.js"></script>
         <script  src="js/common/supersized-init.js"></script>
 		<script  src="js/common/layer/layer.js"></script> -->
@@ -40,7 +40,7 @@
 			        	type:"post",
 			        	dataType:"json",
 			        	beforeSend:function(){
-			        		alert("before send");
+			        		//alert("before send");
 			        		//layer.msg('开始登录，请注意后台控制台。');
 			        	},
 			        	success:function(result){
@@ -53,7 +53,7 @@
 				    			return;
 				    		}else{
 				    			//layer.msg('登录成功！');
-				    			alert(2);
+				    			//alert(result.back_url + "${basePath}/home.jsp");
 				    			setTimeout(function(){
 					    			window.location.href= result.back_url || "${basePath}/home.jsp";
 				    			},1000)

@@ -1,4 +1,4 @@
-package com.shop.core.shiro;
+package com.shop.core.shiro.session;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -8,7 +8,6 @@ import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
 
 import com.shop.common.utils.LoggerUtils;
-import com.shop.core.shiro.session.ShiroSessionRepository;
 /**
  * Session 操作
  * 

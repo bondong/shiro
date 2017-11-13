@@ -16,7 +16,6 @@ import com.shop.common.utils.LoggerUtils;
 import com.shop.common.utils.StringUtils;
 import com.shop.core.auth.bo.UserOnlineBo;
 import com.shop.core.model.UUser;
-import com.shop.core.shiro.CustomShiroSessionDAO;
 /**
  * 用户Session 手动管理
  */

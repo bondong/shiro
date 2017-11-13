@@ -7,6 +7,7 @@ import java.util.TreeSet;
 
 import com.shop.common.utils.SerializeUtil;
 import com.shop.common.utils.SpringContextUtil;
+import com.shop.core.shiro.base.JedisManager;
 
 import redis.clients.jedis.Jedis;
 /**

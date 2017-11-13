@@ -1,10 +1,8 @@
-package com.shop.core.shiro.cache.impl;
+package com.shop.core.shiro.cache;
 
 import org.apache.shiro.cache.Cache;
 
-import com.shop.core.shiro.cache.JedisManager;
-import com.shop.core.shiro.cache.JedisShiroCache;
-import com.shop.core.shiro.cache.ShiroCacheManager;
+import com.shop.core.shiro.base.JedisManager;
 
 /**
  * JRedis管理

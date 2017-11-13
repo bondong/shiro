@@ -1,10 +1,8 @@
-package com.shop.core.shiro.listenter;
+package com.shop.core.shiro.session;
 
 
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.SessionListener;
-
-import com.shop.core.shiro.session.ShiroSessionRepository;
 /**
  * shiro 回话 监听
  * 

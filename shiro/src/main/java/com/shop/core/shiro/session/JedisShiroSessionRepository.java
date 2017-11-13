@@ -1,4 +1,4 @@
-package com.shop.core.shiro.cache;
+package com.shop.core.shiro.session;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -7,9 +7,7 @@ import org.apache.shiro.session.Session;
 
 import com.shop.common.utils.LoggerUtils;
 import com.shop.common.utils.SerializeUtil;
-import com.shop.core.shiro.session.CustomSessionManager;
-import com.shop.core.shiro.session.SessionStatus;
-import com.shop.core.shiro.session.ShiroSessionRepository;
+import com.shop.core.shiro.base.JedisManager;
 /**
  * Session 管理
  * @author sojson.com

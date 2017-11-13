@@ -1,4 +1,4 @@
-package com.shop.core.shiro.cache;
+package com.shop.core.shiro.base;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,6 +13,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 import com.shop.common.utils.LoggerUtils;
 import com.shop.common.utils.SerializeUtil;
 import com.shop.common.utils.StringUtils;
+import com.shop.core.shiro.session.JedisShiroSessionRepository;
 
 /**
  * Redis Manager Utils

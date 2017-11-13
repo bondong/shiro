@@ -1,11 +1,9 @@
-package com.shop.core.shiro.cache.impl;
+package com.shop.core.shiro.cache;
 
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.util.Destroyable;
-
-import com.shop.core.shiro.cache.ShiroCacheManager;
 
 /**
  * shiro Custom Cache

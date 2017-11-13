@@ -19,7 +19,7 @@ import org.apache.shiro.web.util.WebUtils;
 import com.shop.common.utils.LoggerUtils;
 import com.shop.core.shiro.cache.VCache;
 import com.shop.core.shiro.session.ShiroSessionRepository;
-import com.shop.core.shiro.token.manager.TokenManager;
+import com.shop.core.shiro.token.TokenManager;
 
 import net.sf.json.JSONObject;
 /**

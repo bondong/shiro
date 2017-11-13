@@ -20,7 +20,7 @@ import com.shop.core.model.UPermission;
 import com.shop.core.model.URolePermission;
 import com.shop.core.mybatis.BaseMybatisDao;
 import com.shop.core.mybatis.page.Pagination;
-import com.shop.core.shiro.token.manager.TokenManager;
+import com.shop.core.shiro.token.TokenManager;
 @Service
 public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> implements PermissionService {
 

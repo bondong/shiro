@@ -18,7 +18,7 @@ import com.shop.core.dao.UUserMapper;
 import com.shop.core.model.URole;
 import com.shop.core.mybatis.BaseMybatisDao;
 import com.shop.core.mybatis.page.Pagination;
-import com.shop.core.shiro.token.manager.TokenManager;
+import com.shop.core.shiro.token.TokenManager;
 
 @Service
 @SuppressWarnings("unchecked")

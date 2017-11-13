@@ -21,7 +21,7 @@ import com.shop.common.utils.StringUtils;
 import com.shop.common.utils.VerifyCodeUtils;
 import com.shop.core.auth.service.UUserService;
 import com.shop.core.model.UUser;
-import com.shop.core.shiro.token.manager.TokenManager;
+import com.shop.core.shiro.token.TokenManager;
 
 import net.sf.json.JSONObject;
 
@@ -103,8 +103,6 @@ public class UserLoginController extends BaseController {
 	@ResponseBody
 	public Map<String,Object> submitLogin(UUser entity,Boolean rememberMe,HttpServletRequest request){
 		
-		String temp = "+++++++++++++++++++++++++++++++++++++++it's a test";
-		System.out.println(temp);
 		try {
 			entity = TokenManager.login(entity,rememberMe);
 			resultMap.put("status", 200);
@@ -124,8 +122,9 @@ public class UserLoginController extends BaseController {
 			LoggerUtils.fmtDebug(getClass(), "获取登录之前的URL,获取登录之前的URL:[%s]",url);
 			//如果登录之前没有地址，那么就跳转到首页。
 			if(StringUtils.isBlank(url)){
-				url = request.getContextPath() + "/index.jsp";
+				url = request.getContextPath() + "/home.jsp";
 			}
+			url = request.getContextPath() + "/home.jsp";
 			//跳转地址
 			resultMap.put("back_url", url);
 		/**

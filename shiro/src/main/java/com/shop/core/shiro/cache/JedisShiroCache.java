@@ -8,6 +8,7 @@ import org.apache.shiro.cache.CacheException;
 
 import com.shop.common.utils.LoggerUtils;
 import com.shop.common.utils.SerializeUtil;
+import com.shop.core.shiro.base.JedisManager;
 
 /**
  * 缓存获取Manager

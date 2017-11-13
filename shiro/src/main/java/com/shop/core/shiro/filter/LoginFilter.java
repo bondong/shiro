@@ -10,7 +10,7 @@ import org.apache.shiro.web.filter.AccessControlFilter;
 
 import com.shop.common.utils.LoggerUtils;
 import com.shop.core.model.UUser;
-import com.shop.core.shiro.token.manager.TokenManager;
+import com.shop.core.shiro.token.TokenManager;
 /**
  * 
  * 
