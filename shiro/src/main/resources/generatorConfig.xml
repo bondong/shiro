@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+  
+<generatorConfiguration>    
+    <!-- 数据库驱动包位置 -->    
+    <classPathEntry    
+        location="D:\local libs\mysql-connector-java-5.1.35.jar" />    
+    <context id="context1">    
+        <commentGenerator>    
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->    
+            <property name="suppressAllComments" value="true"/>    
+        </commentGenerator>    
+        <!-- 数据库链接URL、用户名、密码 -->    
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"    
+            connectionURL="jdbc:mysql://localhost:3306/shop" userId="root" password="123456" />    
+        <!-- 生成模型的包名和位置 -->    
+        <javaModelGenerator targetPackage="com.shop.core.model" targetProject="mybatisGenerater" />
+        	<!-- <property name="enableSubPackages" value="false" />
+        <javaModelGenerator/>     -->  
+        <!-- 生成的映射文件报名和位置 -->    
+        <sqlMapGenerator targetPackage="com.shop.core.mapper" targetProject="mybatisGenerater"/>    
+        	<!-- <property name="enableSubPackages" value="false" />
+        <sqlMapGenerator/>   -->
+        <!-- 生成DAO的包名和位置 -->    
+        <javaClientGenerator targetPackage="com.shop.core.dao" targetProject="mybatisGenerater" type="XMLMAPPER" />    
+       		<!-- <property name="enableSubPackages" value="false" />
+        <javaClientGenerator/>   -->
+        
+        <!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->     
+        <!-- <table schema="shrio_demo" tableName="sys_user" 
+        	enableCountByExample="false" enableUpdateByExample="false"    
+            enableDeleteByExample="false" enableSelectByExample="false" 
+            selectByExampleQueryId="false">      
+        </table>   
+        <table schema="shrio_demo" tableName="sys_permission" 
+        	enableCountByExample="false" enableUpdateByExample="false"    
+            enableDeleteByExample="false" enableSelectByExample="false" 
+            selectByExampleQueryId="false">      
+        </table>   
+        <table schema="shrio_demo" tableName="sys_role" 
+        	enableCountByExample="false" enableUpdateByExample="false"    
+            enableDeleteByExample="false" enableSelectByExample="false" 
+            selectByExampleQueryId="false">      
+        </table>   
+        <table schema="shrio_demo" tableName="sys_role_permission" 
+        	enableCountByExample="false" enableUpdateByExample="false"    
+            enableDeleteByExample="false" enableSelectByExample="false" 
+            selectByExampleQueryId="false">      
+        </table>   
+        <table schema="shrio_demo" tableName="sys_user_role" 
+        	enableCountByExample="false" enableUpdateByExample="false"    
+            enableDeleteByExample="false" enableSelectByExample="false" 
+            selectByExampleQueryId="false">      
+        </table>   --> 
+        <table tableName="%" schema="shop" enableCountByExample="false" 
+        	enableUpdateByExample="false"  enableDeleteByExample="false" 
+        	enableSelectByExample="false"  selectByExampleQueryId="false">
+      		<generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    	</table>
+    </context>    
+</generatorConfiguration>    
