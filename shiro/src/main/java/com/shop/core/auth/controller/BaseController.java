@@ -18,24 +18,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.shop.common.utils.StringUtils;
 
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
- * 
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
- * 
  */
 public class BaseController {
 
@@ -109,7 +91,7 @@ public class BaseController {
 			}
 		}
 		
-		Map<String, Object> params = new HashMap<String, Object>();
+		Map params = new HashMap<String, Object>();
 		params = BeanUtils.describe(obj);
 		params = handleParams(params);
 		// 回填值项

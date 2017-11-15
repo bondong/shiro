@@ -141,6 +141,15 @@ public class UserLoginController extends BaseController {
 		return resultMap;
 	}
 	
+	@RequestMapping(value="testGo",method=RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView testGo(UUser entity,HttpServletRequest request){
+		
+		UUser user = TokenManager.getToken();
+		String url = "/home";
+		//跳转地址
+		return new ModelAndView(url);
+	}
 	/**
 	 * 退出
 	 * @return

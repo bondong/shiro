@@ -12,7 +12,7 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
 			>
 	<!-- 自动扫描(自动注入) -->
-	<context:component-scan base-package="com.shop.*.service;com.shop.*.*.service"/>
+	<context:component-scan base-package="com.shop.core.*.service;com.shop.core.*.*.service"/>
 	<!-- 定时调用存储过程 -->
 	<!-- <context:component-scan base-package="com.shop.common.timer"/> -->
 	
@@ -37,7 +37,7 @@
 	    <property name="testOnReturn" value="${jdbc.testOnReturn}" /> 
 	    <property name="removeAbandoned" value="${jdbc.removeAbandoned}" /> 
 	    <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}" /> 
-<!--	    <property name="logAbandoned" value="${jdbc.logAbandoned}" /> -->
+		<!--<property name="logAbandoned" value="${jdbc.logAbandoned}" /> -->
 	    <property name="filters" value="${jdbc.filters}" />
 		<!-- 关闭abanded连接时输出错误日志 -->
 		<property name="logAbandoned" value="true" />
@@ -46,18 +46,18 @@
 	            <ref bean="log-filter"/>
 	        </list>
 	    </property>
-
 		<!-- 监控数据库 -->
 		<!-- <property name="filters" value="stat" /> -->
-<!--		<property name="filters" value="mergeStat" />-->
+		<!--<property name="filters" value="mergeStat" />-->
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"/> -->
 		<property name="mapperLocations"  >
 			<list>
 				<value>classpath:com/shop/core/mapper/*.xml</value>
+				<value>classpath:com/shop/common/mapper/*.xml</value>
 			</list>
 		</property>
 	</bean>

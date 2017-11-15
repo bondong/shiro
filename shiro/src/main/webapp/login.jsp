@@ -55,7 +55,9 @@
 				    			//layer.msg('登录成功！');
 				    			//alert(result.back_url + "${basePath}/home.jsp");
 				    			setTimeout(function(){
-					    			window.location.href= result.back_url || "${basePath}/home.jsp";
+				    				alert(2);
+				    				window.location.href="u/testGo.do";
+					    			//window.location.href= result.back_url || "${basePath}/home.jsp";
 				    			},1000)
 				    		}
 			        	},
