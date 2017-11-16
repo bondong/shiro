@@ -53,24 +53,22 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"/> -->
-		
 		<!-- 翻页插件 -->
-		<!-- <property name="plugins">
+		<property name="plugins">
 		    <array>
 		      <bean class="com.github.pagehelper.PageInterceptor">
 		        <property name="properties">
-		          使用下面的方式配置参数，一行配置一个
+		          <!-- 使用下面的方式配置参数，一行配置一个 -->
 		          <value>
 		            helperDialect=mysql
 		          </value>
 		        </property>
 		      </bean>
 		    </array>
-		 </property> -->
+		</property> 
 		<!-- 指定mybatis的全局配置文件 -->
-		<property name="configLocation" value="classpath:mybatis-config.xml" />
-		<!-- <property name="typeAliasesPackage" value="com.shop.common.entity" /> -->
+		<!-- <property name="configLocation" value="classpath:mybatis-config.xml" />  -->
+		<property name="typeAliasesPackage" value="com.shop.common.entity,com.shop.core.model" />
 		<property name="mapperLocations"  >
 			<list>
 				<value>classpath:com/shop/core/mapper/*.xml</value>
@@ -80,16 +78,18 @@
 	</bean>
 
 	<!-- Mapper映射文件的包扫描器 -->
-	<!-- <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.shop.common.mapper" />
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.shop.common.mapper,com.shop.core.dao" />
+		<property name="properties">
+        <!-- <value>
+            mappers=tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.special.InsertListMapper
+        </value> -->
+    	</property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean> 
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
-	</bean>
-	-->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.shop.common.mapper,com.shop.core.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	
 	<bean id="baseMybatisDao" class="com.shop.core.mybatis.BaseMybatisDao" >
