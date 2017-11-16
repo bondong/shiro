@@ -4,11 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<settings>		
+<!-- 	<settings>		
 		<setting name="defaultExecutorType" value="REUSE" />
 	</settings>
-    <!-- 自动扫描包内的bo类，简化*Mapper.xml写法 -->
+    自动扫描包内的bo类，简化*Mapper.xml写法
     <typeAliases>
         <package name="com.shop.core.domain" />
-    </typeAliases>
+    </typeAliases> -->
+    
+    <plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql" />
+			<!-- 该参数默认为false -->
+			<!-- 设置为true时，使用RowBounds分页会进行count查询,也就是是否查询数据总条数 -->
+			<property name="rowBoundsWithCount" value="true" />
+		</plugin>
+	</plugins>
 </configuration>

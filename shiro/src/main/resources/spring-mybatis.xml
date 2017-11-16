@@ -54,6 +54,23 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"/> -->
+		
+		<!-- 翻页插件 -->
+		<!-- <property name="plugins">
+		    <array>
+		      <bean class="com.github.pagehelper.PageInterceptor">
+		        <property name="properties">
+		          使用下面的方式配置参数，一行配置一个
+		          <value>
+		            helperDialect=mysql
+		          </value>
+		        </property>
+		      </bean>
+		    </array>
+		 </property> -->
+		<!-- 指定mybatis的全局配置文件 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<!-- <property name="typeAliasesPackage" value="com.shop.common.entity" /> -->
 		<property name="mapperLocations"  >
 			<list>
 				<value>classpath:com/shop/core/mapper/*.xml</value>
@@ -62,37 +79,42 @@
 		</property>
 	</bean>
 
+	<!-- Mapper映射文件的包扫描器 -->
+	<!-- <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.shop.common.mapper" />
+	</bean> 
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
+	-->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.shop.common.mapper,com.shop.core.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
 	<bean id="baseMybatisDao" class="com.shop.core.mybatis.BaseMybatisDao" >
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.shop.core.dao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-	</bean>
+
+	
+	
 	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	     <property name="dataSource" ref="dataSource" />
 	 </bean>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="publish*" />
-			<tx:method name="save*" />
-			<tx:method name="add*" />
-			<tx:method name="update*" />
-			<tx:method name="insert*" />
-			<tx:method name="create*" />
-			<tx:method name="del*" />
-			<tx:method name="load*" />
-			<tx:method name="init*" />
-			<tx:method name="*"  read-only="true"/>
+			<!--所有以query开头的方法都是只读的 -->
+			<tx:method name="query*" read-only="true" />
+			<!--其他方法使用默认事务策略 -->
+			<tx:method name="*" />
 		</tx:attributes>
 	</tx:advice>
  	<!-- AOP配置--> 
+ 	<!--pointcut元素定义一个切入点，execution中的第一个星号 用以匹配方法的返回类型，这里星号表明匹配所有返回类型。 
+ 		.*.*(..)表明匹配包下的所有类的所有方法 -->
 	<aop:config>
-		<aop:pointcut id="myPointcut"
-			expression="execution(public * com.shop.core.*.service.impl.*.*(..))" />
+		<aop:pointcut id="myPointcut" expression="execution(public * com.shop.core.auth.service.impl.*.*(..)) 
+		or execution(public * com.shop.common.service.impl.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
 	</aop:config>
 <!--	<aop:config>-->

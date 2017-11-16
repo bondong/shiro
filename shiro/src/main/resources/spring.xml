@@ -33,4 +33,17 @@
 	<!-- 定时任务，运行去掉
 	<import resource="spring-timer.xml"/>
 	 -->
+	 
+	<!-- spring线程池配置 -->
+	<!-- <bean id="messageParseExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		线程池维护线程的最少数量
+		<property name="corePoolSize" value="10" />
+		线程池维护线程所允许的空闲时间
+		<property name="keepAliveSeconds" value="30000" />
+		线程池维护线程的最大数量
+		<property name="maxPoolSize" value="100" />
+		线程池所使用的缓冲队列
+		<property name="queueCapacity" value="100" />
+	</bean> -->
 </beans>

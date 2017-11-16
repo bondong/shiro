@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!-- 启动自动扫描 -->
+    <!-- 配置要扫描包 ,解析包里面的注解信息 -->
     <context:component-scan base-package="com.shop.core.*;com.shop.*.*.controller" />
 	<!-- <context:component-scan base-package="com.shop.*.controller;com.shop.*.*.controller"/> -->
     <!-- 注册MVC注解驱动 -->
