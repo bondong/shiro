@@ -1,7 +1,14 @@
 package com.shop.common.entity;
 
 import java.util.Date;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import net.sf.json.JSONObject;
 
 @Table(name = "sys_user")
 public class SysUser {
@@ -232,4 +239,13 @@ public class SysUser {
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    @Override
+    public String toString() {
+    	System.out.println( "User [id=" + id + ", userName=" + username + ", password="
+				+ password + ", lastLoginTime=" + lastLoginTime + "]");
+    	
+    	return JSONObject.fromObject(this).toString();
+    }
+    
 }

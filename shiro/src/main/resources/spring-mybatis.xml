@@ -81,11 +81,11 @@
 	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.shop.common.mapper,com.shop.core.dao" />
-		<property name="properties">
-        <!-- <value>
+		<!-- <property name="properties">
+        <value>
             mappers=tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.special.InsertListMapper
-        </value> -->
-    	</property>
+        </value>
+    	</property> -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean> 
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
